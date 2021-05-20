@@ -10,15 +10,43 @@ public class EnemyMovement : MonoBehaviour
     public CharacterController controller;
     public Animator animator;
 
-    //Directing it will be heading
+    //Direction it will be heading
     public string aimName;
     private Transform aim;
 
+
+    //Attack area
+    public Collider hitBox;
+
+    //Player Layer
+    public LayerMask playerLayer;
+    public bool attackAllowed;
 
     // Start is called before the first frame update
     void Start()
     {
         aim = GameObject.Find(aimName).transform;
+        attackAllowed = true;
+    }
+
+   
+    // Update is called once per frame
+    void Update()
+    {
+        if (attackAllowed)
+        {
+            //will only follow in case of a minimum distance between Enemy and Player
+            if (Vector3.Distance(transform.position, aim.position) >= minimumDistance)
+            {
+                Follow();
+            }
+            else
+            {
+                animator.SetBool("isWalking", false);
+                Invoke("Attack", 0.5f);
+                attackAllowed = false;
+            }
+        }
     }
 
     void Follow()
@@ -27,17 +55,29 @@ public class EnemyMovement : MonoBehaviour
         controller.SimpleMove(transform.forward * walkingSpeed);
         animator.SetBool("isWalking", true);
     }
-    // Update is called once per frame
-    void Update()
+
+    //Method that causes damage to the player
+    void Damage()
     {
-        //will only follow in case of a minimum distance between Enemy and Player
-        if (Vector3.Distance (transform.position, aim.position)>= minimumDistance)
+        Collider[] hit;
+        hit = Physics.OverlapBox(hitBox.bounds.center, hitBox.bounds.extents, hitBox.transform.rotation, playerLayer);
+        Debug.Log(hit.Length);
+        if (hit.Length == 1)
         {
-            Follow();
+            Animator playerAnimator = hit[0].GetComponent<Animator>();
+            hit[0].GetComponent<HPManager>().LooseHP(1);
+            playerAnimator.SetBool("receivesDamage", true);
+
+
         }
-        else
-        {
-            animator.SetBool("isWalking", false);
-        }
+        attackAllowed = true;
+        animator.SetBool("isAttacking", false);
+    }
+
+    void Attack()
+    {
+        Debug.Log("Atacando");
+        animator.SetBool("isAttacking", true);
+        Invoke("Damage", 1f);
     }
 }
