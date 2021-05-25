@@ -1,8 +1,10 @@
 ﻿<Properties StartupConfiguration="{A1F062F6-F45B-42A2-3131-77EC0E70EAD6}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemyHarm.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemyMovement.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerShooting.cs" Line="52" Column="5" />
-      <File FileName="Assets/Scripts/EnemyHarm.cs" Line="14" Column="6" />
+      <File FileName="Assets/Scripts/PlayerShooting.cs" Line="37" Column="6" />
+      <File FileName="Assets/Scripts/EnemyHarm.cs" Line="12" Column="39" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="14" Column="26" />
+      <File FileName="Assets/Scripts/EnemyMovement.cs" Line="64" Column="19" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +12,7 @@
           <Node name="ZombieShow" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="EnemyHarm.cs" selected="True" />
+                <Node name="EnemyMovement.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -20,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="fccd0921-2467-4c97-9921-35a5dc8548b0" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c0befb82-a35d-41fd-a2c5-0db4fd212da4" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

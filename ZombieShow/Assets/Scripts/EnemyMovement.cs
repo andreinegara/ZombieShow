@@ -61,7 +61,6 @@ public class EnemyMovement : MonoBehaviour
     {
         Collider[] hit;
         hit = Physics.OverlapBox(hitBox.bounds.center, hitBox.bounds.extents, hitBox.transform.rotation, playerLayer);
-        Debug.Log(hit.Length);
         if (hit.Length == 1)
         {
             Animator playerAnimator = hit[0].GetComponent<Animator>();
@@ -76,7 +75,6 @@ public class EnemyMovement : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Atacando");
         animator.SetBool("isAttacking", true);
         Invoke("Damage", 1f);
     }

@@ -10,7 +10,6 @@ public class EnemyHarm : MonoBehaviour
         {
             Destroy(this.gameObject);
             Destroy(other.gameObject);
-            
         }
     }
 }
