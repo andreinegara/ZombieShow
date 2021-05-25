@@ -92,6 +92,7 @@
     <Compile Include="Assets/Flooded_Grounds/Scripts/DisableRenderer.cs" />
     <Compile Include="Assets/Flooded_Grounds/PostProcessing/Runtime/Components/DepthOfFieldComponent.cs" />
     <Compile Include="Assets/Scripts/PlayerShooting.cs" />
+    <Compile Include="Assets/Scripts/EnemyHarm.cs" />
     <Compile Include="Assets/Scripts/PlayerMovement.cs" />
     <Compile Include="Assets/Flooded_Grounds/PostProcessing/Runtime/Components/ColorGradingComponent.cs" />
     <Compile Include="Assets/Flooded_Grounds/PostProcessing/Runtime/PostProcessingProfile.cs" />
@@ -110,7 +111,7 @@
     <Compile Include="Assets/Flooded_Grounds/PostProcessing/Runtime/Models/UserLutModel.cs" />
     <Compile Include="Assets/Flooded_Grounds/PostProcessing/Runtime/Components/BloomComponent.cs" />
     <Compile Include="Assets/Flooded_Grounds/PostProcessing/Runtime/Models/DitheringModel.cs" />
-    <Compile Include="Assets/Scripts/EnemyHarm.cs" />
+    <Compile Include="Assets/Scripts/SpawnManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/Flooded_Grounds/PostProcessing/Resources/Shaders/ScreenSpaceReflection.shader" />
