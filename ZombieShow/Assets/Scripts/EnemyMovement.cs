@@ -10,6 +10,9 @@ public class EnemyMovement : MonoBehaviour
     public CharacterController controller;
     public Animator animator;
 
+    //Enemy Rigidbody
+    private Rigidbody enemy;
+
     //Direction it will be heading
     public string aimName;
     private Transform aim;
@@ -27,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
     {
         aim = GameObject.Find(aimName).transform;
         attackAllowed = true;
+        enemy = GetComponent<Rigidbody>();
     }
 
    
@@ -60,13 +64,15 @@ public class EnemyMovement : MonoBehaviour
     void Damage()
     {
         Collider[] hit;
-        hit = Physics.OverlapBox(hitBox.bounds.center, hitBox.bounds.extents, hitBox.transform.rotation, playerLayer);
-        if (hit.Length == 1)
-        {
-            Animator playerAnimator = hit[0].GetComponent<Animator>();
-            hit[0].GetComponent<HPManager>().LooseHP(1);
-            playerAnimator.SetBool("receivesDamage", true);
 
+        hit = Physics.OverlapBox(hitBox.bounds.center, hitBox.bounds.extents, hitBox.transform.rotation, playerLayer);
+        Debug.Log(hit.Length);
+        if (hit.Length >= 1)
+        {
+            //Animator playerAnimator = hit[0].GetComponent<Animator>();
+            hit[0].GetComponent<HPManager>().LooseHP(1);
+            //playerAnimator.SetBool("receivesDamage", true);
+            
 
         }
         attackAllowed = true;
@@ -77,5 +83,14 @@ public class EnemyMovement : MonoBehaviour
     {
         animator.SetBool("isAttacking", true);
         Invoke("Damage", 1f);
+    }
+
+    void StopMotion()
+    {
+
+        animator.SetBool("isWalking", false);
+        enemy.velocity = Vector3.zero;
+        enemy.angularVelocity = Vector3.zero;
+
     }
 }
