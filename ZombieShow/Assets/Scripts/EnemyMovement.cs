@@ -47,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
             else
             {
                 animator.SetBool("isWalking", false);
-                Invoke("Attack", 0.5f);
+                Invoke("Attack", 0.9f);
                 attackAllowed = false;
             }
         }
